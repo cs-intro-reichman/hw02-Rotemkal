@@ -9,21 +9,11 @@ import java.util.Random;
  */
 public class OneOfEachStats {
 	public static void main (String[] args) {
-		// Gets the two command-line arguments
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
-		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with: 
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed. 
-		//// This is the only change that you have to do in the program.
-		int sum = 0, sumall = 0, count2 = 0, count3 = 0, count4 = 0;
+		int sum = 0, count2 = 0, count3 = 0, count4 = 0;
+		double sumall = 0;
 		for (int i = 0 ; i < T ; i++) {
 			boolean boy = false, girl = false;
 			sum = 0;
@@ -45,7 +35,7 @@ public class OneOfEachStats {
 			}
 			sumall = sumall + sum;
 		}
-		double average = (double)(sumall / T);
+		double average = sumall / (double) T;
 		System.out.println ("Average: " + average + " children to get at least one of each gender.");
 		System.out.println ("Number of families with 2 children: "+ count2);
 		System.out.println ("Number of families with 3 children: "+ count3);

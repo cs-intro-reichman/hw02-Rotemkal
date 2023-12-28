@@ -7,7 +7,8 @@
 public class OneOfEachStats1 {
 	public static void main (String[] args) {
 		int t = Integer.parseInt(args[0]);
-		int sum = 0, sumall = 0, count2 = 0, count3 = 0, count4 = 0;
+		int sum = 0, count2 = 0, count3 = 0, count4 = 0;
+		double sumall = 0;
 		for (int i = 0 ; i < t ; i++) {
 			boolean boy = false, girl = false;
 			sum = 0;
@@ -29,7 +30,7 @@ public class OneOfEachStats1 {
 			}
 			sumall = sumall + sum;
 		}
-		double average = (double)(sumall / t);
+		double average = sumall / (double) t;
 		System.out.println ("Average: " + average + " children to get at least one of each gender.");
 		System.out.println ("Number of families with 2 children: "+ count2);
 		System.out.println ("Number of families with 3 children: "+ count3);
