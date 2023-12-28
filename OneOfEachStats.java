@@ -13,17 +13,49 @@ public class OneOfEachStats {
 		int T = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);  
-		
+        Random generator = new Random(seed);
 		//// In the previous version of this program, you used a statement like:
 		//// double rnd = Math.random();
 		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
+		//// In this version of the program, replace this statement with: 
 		//// double rnd = generator.nextDouble();
 		//// This statement will generate a random value in the range [0,1),
 		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
+		//// randomization will be based on the given seed. 
 		//// This is the only change that you have to do in the program.
-		    
+		int sum = 0, sumall = 0, count2 = 0, count3 = 0, count4 = 0;
+		for (int i = 0 ; i < T ; i++) {
+			boolean boy = false, girl = false;
+			sum = 0;
+				while (boy == false || girl == false) {
+					double gender = generator.nextDouble();
+					sum++;
+					if ( gender > 0.5) {
+						boy = true;
+					} else {
+						girl = true;
+					}
+				}
+			if (sum == 2) {
+				count2++;
+			} else if (sum == 3) {
+				count3++;
+			} else if (sum >= 4) {
+			count4++;
+			}
+			sumall = sumall + sum;
+		}
+		double average = (double)(sumall / T);
+		System.out.println ("Average: " + average + " children to get at least one of each gender.");
+		System.out.println ("Number of families with 2 children: "+ count2);
+		System.out.println ("Number of families with 3 children: "+ count3);
+		System.out.println ("Number of families with 4  or more children: "+ count4);
+		String mostcommon = "2.";
+		if ((count3 > count2) && (count3 > count4)) {
+			mostcommon = "3.";
+		} else if ((count4 > count2) && (count4 > count2)) {
+				mostcommon = "4 or more.";
+		}
+	System.out.println ("The most common number of children is "+ mostcommon);
 	}
 }
