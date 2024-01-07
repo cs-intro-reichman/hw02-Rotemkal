@@ -15,9 +15,10 @@ public class Reverse {
   			#feedback:
      			That condition is not required.
 			When you use integers 7/2 = 3 = 6/2
+   			The minus 1 stand for the fact indices start with 0.
 			You did not have to seperate cases.
 		*/
-		char middle =s.charAt(s.length()/2);
+		char middle =s.charAt((s.length()-1)/2);
 		System.out.println(newS);
 		System.out.println("The middle character is " + middle);
 	}
