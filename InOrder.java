@@ -4,18 +4,21 @@
  */
 public class InOrder {
 	public static void main (String[] args) {
-		boolean stop = false;
-		int rand1 = (int)(Math.random() * 10);
-		System.out.println(rand1);
-		while (stop != true) {
-			int rand2 = (int)(Math.random() * 10);
-			if (rand2 > rand1) {
-				System.out.println(rand2);
-				rand1=rand2;
-			}
-			else {
-				stop = true;
-			}
-		}
+		/* 
+  			#feedback: 
+     			- Classic case to use do-while loop
+			- Use meaningfull names
+   			- bad use of boolean - if you put boolean in condition line, you might use the variable or it negative without comparision.
+      			- You created a condition to break a loop instead of using the abstract condition to keep iterating - that's a very bad usage.
+		*/
+		boolean stop;
+		int last = 0;
+		int next = (int)(Math.random() * 10);
+		do {
+			System.out.println(next);
+			last = next;
+			next = (int)(Math.random() * 10);
+			stop = next < last;
+		} while (!stop);
 	}
 }
