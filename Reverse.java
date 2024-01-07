@@ -6,19 +6,18 @@ public class Reverse {
 	public static void main (String[] args){
 		String s = args[0];
 		String newS = "";
-		int n= s.length()-1;
-		while (n != -1) {
-			char c = s.charAt(n);
-			newS = newS + c;
-			n = n-1;
-			}
-		char middle;
-		if (s.length()%2==0) {
-		middle =s.charAt(s.length()/2-1);
+		// #feedback: better to use for loop here
+		for (int i = n-1; i>=0 ; i--) {
+			// #feedback: can use (x += n) equivalent to ( x = x + n)
+			newS += s.charAt(i);
 		}
-		else {
-		middle = s.charAt(s.length()/2);
-		}
+		/*
+  			#feedback:
+     			That condition is not required.
+			When you use integers 7/2 = 3 = 6/2
+			You did not have to seperate cases.
+		*/
+		char middle =s.charAt(s.length()/2);
 		System.out.println(newS);
 		System.out.println("The middle character is " + middle);
 	}
