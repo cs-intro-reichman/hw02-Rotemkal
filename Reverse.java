@@ -7,7 +7,7 @@ public class Reverse {
 		String s = args[0];
 		String newS = "";
 		// #feedback: better to use for loop here
-		for (int i = n-1; i>=0 ; i--) {
+		for (int i = s.length()-1; i>=0 ; i--) {
 			// #feedback: can use (x += n) equivalent to ( x = x + n)
 			newS += s.charAt(i);
 		}
